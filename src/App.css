@@ -1,0 +1,49 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+body {
+  font-size: 20px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(6, 70px);
+  border: 3px solid black;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(8, 7, 4);
+}
+.display {
+  grid-column-start: span 4;
+  background-color: black;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.clear {
+  grid-column: span 2;
+  background-color: brown;
+}
+.equal {
+  grid-row: span 2;
+  background-color: rgb(45, 45, 109);
+}
+.zero {
+  grid-column: span 2;
+}
+.numbers {
+  background-color: rgb(75, 71, 71);
+}
+.sign {
+  background-color: gray;
+}
+.history {
+  color: rgb(185, 128, 82);
+}
