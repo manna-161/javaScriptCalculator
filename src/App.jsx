@@ -49,7 +49,6 @@ function App() {
           currentHistory =
             history.slice(0, history.length - 1) +
             (e.target.textContent === "X" ? "*" : e.target.textContent);
-          console.log(history, "введен НЕ МИНУС, в конце НЕ 2 минуса");
         } else if (
           (history.length &&
             history.endsWith("--") &&
@@ -60,12 +59,10 @@ function App() {
           currentHistory =
             history.slice(0, history.length - 2) +
             (e.target.textContent === "X" ? "*" : e.target.textContent);
-          console.log("введен НЕ МИНУС, в конце 2 минуса");
         } else {
           currentHistory =
             history +
             (e.target.textContent === "X" ? "*" : e.target.textContent);
-          console.log(history, "else");
         }
       }
       if (e.target.textContent === "-") {
@@ -75,7 +72,6 @@ function App() {
           history[history.length - 1] !== e.target.textContent
         ) {
           currentHistory = history + e.target.textContent;
-          console.log(history, "введен МИНУС, в конце НЕ минус");
         } else if (
           !history.endsWith("--") &&
           history[history.length - 1] === e.target.textContent &&
@@ -83,13 +79,10 @@ function App() {
         ) {
           currentHistory =
             history.slice(0, history.length - 1) + e.target.textContent;
-          console.log("введен МИНУС, в конце минус, а перед ним НЕ минус");
         } else if (numbers.includes(history[history.length - 1])) {
           currentHistory = history + e.target.textContent;
-          console.log("введен МИНУС, в конце число");
         } else {
           currentHistory = history;
-          console.log("введен МИНУС, в конце 2 минуса");
         }
       }
     }
@@ -104,9 +97,7 @@ function App() {
         if (e.target.textContent !== "0" && display === "0") {
           currentDisplay = "" + e.target.textContent;
           currentHistory = history.slice(0, -1) + e.target.textContent;
-          // console.log(display);
         }
-        // console.log(display, "равно нет в истории");
       }
       if (e.target.textContent === "0" && display.includes(".")) {
         currentDisplay = display + e.target.textContent;
@@ -116,7 +107,6 @@ function App() {
       numbers.includes(e.target.textContent) &&
       history.includes("=")
     ) {
-      // console.log('после равно')
       currentDisplay = "" + e.target.textContent;
       currentHistory = e.target.textContent;
     }
@@ -128,7 +118,6 @@ function App() {
         history +
         (e.target.textContent === "." ? "0" : "") +
         e.target.textContent;
-      // console.log(display, history)
     }
     if (history.includes("=") && sign.includes(e.target.textContent)) {
       currentHistory =
@@ -143,10 +132,8 @@ function App() {
 
   function calculate() {
     setTimeout(() => {
-      // let fixHistory = history.replace(/\-{2}/g, '+')
       setDisplay(eval(history));
       setHistory(history + "=" + eval(history));
-      console.log(history);
     }, 0);
   }
 
